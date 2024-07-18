@@ -30,24 +30,17 @@
             display: flex;
             justify-content: space-between;
         }
-        h2 {
-            margin-bottom: 10px;
-        }
         #movie-details {
             width: 60%;
             border: 1px solid #ccc;
-            padding: 10px;
+            padding: 20px;
+            text-align: center;
         }
-        .details {
-            margin-top: 20px;
-            padding: 10px;
-            border: 1px solid #ccc;
-            width: 300px;
-        }
-        #films {
-            width: 35%;
-            list-style-type: none;
-            padding: 0;
+        #movie-details img {
+            max-width: 100%;
+            height: auto;
+            display: block;
+            margin: 0 auto;
         }
         .film {
             cursor: pointer;
@@ -61,7 +54,7 @@
         }
         footer {
             text-align: center;
-            padding: 1px 0;
+            padding: 10px 0;
             background-color: #333;
             color: white;
             position: fixed;
@@ -89,12 +82,12 @@
 
             <!-- Movie Details Section -->
             <section id="movie-details">
-                <h2>The Giant Gila Monster</h2>
-                <img src="https://www.gstatic.com/tv/thumb/v22vodart/2157/p2157_v_v8_ab.jpg" alt="The Giant Gila Monster Poster">
-                <p>Description: A giant lizard terrorizes a rural Texas community and a heroic teenager attempts to destroy the creature.</p>
-                <p>Showtime: 04:00PM</p>
-                <p>Runtime: 108 minutes</p>
-                <p>Available Tickets: <span id="available-tickets">3</span></p>
+                <h2 id="movie-title">Movie Title</h2>
+                <img id="movie-poster" src="" alt="Movie Poster">
+                <p id="movie-description">Description: Lorem ipsum dolor sit amet, consectetur adipisicing elit. Quos, natus.</p>
+                <p id="movie-showtime">Showtime: 00:00PM</p>
+                <p id="movie-runtime">Runtime: 120 minutes</p>
+                <p>Available Tickets: <span id="available-tickets">0</span></p>
                 <button id="buy-ticket">Buy Ticket</button>
             </section>
         </section>
@@ -137,13 +130,12 @@
                 <option value="Danger: Diabolik">Danger: Diabolik</option>
                 <option value="Village Of The Giants">Village Of The Giants</option>
             </select>
+            <button id="view-movie-btn">View Movie Details</button>
         </section>
     </main>
 
     <footer>
         <p>&copy; 2024 Flatdango Movie Theater. All rights reserved.</p>
     </footer>
-
-
 </body>
 </html>

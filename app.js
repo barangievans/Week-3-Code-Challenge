@@ -1,158 +1,142 @@
-document.addEventListener('DOMContentLoaded', function() {
-    const moviesData = [
-        {
-            title: "The Giant Gila Monster",
-            description: "A giant lizard terrorizes a rural Texas community and a heroic teenager attempts to destroy the creature.",
-            showtime: "04:00PM",
-            runtime: "108 minutes",
-            availableTickets: 3
-        },
-        {
-            title: "Manos: The Hands Of Fate",
-            description: "A family gets lost on the road and stumble upon a hidden, underground, devil-worshiping cult led by the fearsome Master and his servant Torgo.",
-            showtime: "02:30PM",
-            runtime: "74 minutes",
-            availableTickets: 5
-        },
-        {
-            title: "Time Chasers",
-            description: "An inventor comes up with a time machine, but must prevent it from falling into the hands of an evil corporation.",
-            showtime: "06:15PM",
-            runtime: "89 minutes",
-            availableTickets: 2
-        },
-        {
-            title: "The Touch Of Satan",
-            description: "A farmer's fiancée is possessed by a demonic witch.",
-            showtime: "08:00PM",
-            runtime: "90 minutes",
-            availableTickets: 7
-        },
-        {
-            title: "Santa Claus Conquers The Martians",
-            description: "Santa Claus and his Martian friend battle Martians to save Christmas.",
-            showtime: "11:00AM",
-            runtime: "81 minutes",
-            availableTickets: 10
-        },
-        {
-            title: "Track Of The Moon Beast",
-            description: "A mineralogist accidentally unleashes a lizard-like monster upon the population of a small town.",
-            showtime: "03:45PM",
-            runtime: "90 minutes",
-            availableTickets: 4
-        },
-        {
-            title: "The Skydivers",
-            description: "Thrill-seeking skydivers encounter murderous smugglers on the ground.",
-            showtime: "01:00PM",
-            runtime: "75 minutes",
-            availableTickets: 6
-        },
-        {
-            title: "The Killer Shrews",
-            description: "A group of people are trapped on a remote island by killer shrews.",
-            showtime: "05:30PM",
-            runtime: "69 minutes",
-            availableTickets: 8
-        },
-        {
-            title: "Project Moon Base",
-            description: "A team of American astronauts are sent to the moon on a mission to explore what lies beneath its surface.",
-            showtime: "09:30PM",
-            runtime: "63 minutes",
-            availableTickets: 3
-        },
-        {
-            title: "The Giant Spider Invasion",
-            description: "Giant spiders from another dimension invade Wisconsin and wreak havoc on the population.",
-            showtime: "07:15PM",
-            runtime: "84 minutes",
-            availableTickets: 5
-        },
-        {
-            title: "Catalina Caper",
-            description: "A group of teenagers travels to an island and becomes involved in a musical adventure.",
-            showtime: "10:30PM",
-            runtime: "85 minutes",
-            availableTickets: 2
-        },
-        {
-            title: "Secret Agent Super Dragon",
-            description: "A secret agent is sent to stop a drug lord with help from a beautiful secretary.",
-            showtime: "12:30PM",
-            runtime: "105 minutes",
-            availableTickets: 3
-        },
-        {
-            title: "Wild Rebels",
-            description: "A stock car racer becomes involved with drug smugglers and a beautiful woman.",
-            showtime: "06:45PM",
-            runtime: "85 minutes",
-            availableTickets: 6
-        },
-        {
-            title: "Danger: Diabolik",
-            description: "International thief Diabolik pulls heist after heist but European cops led by inspector Ginko and envious mobsters led by Ralph Valmont are closing-in on him.",
-            showtime: "09:15PM",
-            runtime: "105 minutes",
-            availableTickets: 4
-        },
-        {
-            title: "Village Of The Giants",
-            description: "A group of spoiled teenagers from wealthy families are sent to a boot camp on a remote island by their frustrated parents to learn responsibility.",
-            showtime: "02:00PM",
-            runtime: "81 minutes",
-            availableTickets: 7
-        }
-    ];
 
-    const movieDetails = document.getElementById('movie-details');
-    const availableTicketsDisplay = document.getElementById('available-tickets');
-    const buyTicketButton = document.getElementById('buy-ticket');
-    const movieSelect = document.getElementById('movie-select');
-    const filmsList = document.getElementById('films');
+        // JavaScript code to handle movie selection
+        document.addEventListener('DOMContentLoaded', function() {
+            const movieSelect = document.getElementById('movie-select');
+            const movieDetails = document.getElementById('movie-details');
+            const movieTitle = document.getElementById('movie-title');
+            const moviePoster = document.getElementById('movie-poster');
+            const movieDescription = document.getElementById('movie-description');
+            const movieShowtime = document.getElementById('movie-showtime');
+            const movieRuntime = document.getElementById('movie-runtime');
+            const availableTickets = document.getElementById('available-tickets');
+            const viewMovieBtn = document.getElementById('view-movie-btn');
 
-    // Initial setup with the first movie
-    updateMovieDetails(moviesData[0]);
+            // Example data (you can replace this with your actual data handling)
+            const movieData = {
+                "The Giant Gila Monster": {
+                    poster: "https://www.gstatic.com/tv/thumb/v22vodart/2157/p2157_v_v8_ab.jpg",
+                    description: "A giant lizard terrorizes a rural Texas community and a heroic teenager attempts to destroy the creature.",
+                    showtime: "04:00PM",
+                    runtime: "108",
+                    tickets: 3
+                },
+                "Manos: The Hands Of Fate": {
+                    poster: "https://www.gstatic.com/tv/thumb/v22vodart/47781/p47781_v_v8_ac.jpg",
+                    description: "A family gets lost on the road and stumbles upon a hidden, underground, devil-worshiping cult led by the fearsome Master and his servant Torgo.",
+                    showtime: "06:45PM",
+                    runtime: "118",
+                    tickets: 5
+                },
+                "Time Chasers": {
+                    poster: "https://www.gstatic.com/tv/thumb/v22vodart/23342/p23342_v_v8_ab.jpg",
+                    description: "An inventor comes up with a time machine, but must prevent its abuse at the hands of an evil C.E.O.",
+                    showtime: "09:30PM",
+                    runtime: "93",
+                    tickets: 7
+                },
+                "The Touch Of Satan": {
+                    poster: "https://www.gstatic.com/tv/thumb/v22vodart/43468/p43468_v_v8_aa.jpg",
+                    description: "A young man meets a farm girl who is actually a witch.",
+                    showtime: "09:00PM",
+                    runtime: "101",
+                    tickets: 4
+                },
+                "Santa Claus Conquers The Martians": {
+                    poster: "https://www.gstatic.com/tv/thumb/v22vodart/4232/p4232_v_v8_aa.jpg",
+                    description: "The Martians kidnap Santa Claus because there is nobody on Mars to give their children presents.",
+                    showtime: "03:30PM",
+                    runtime: "96",
+                    tickets: 5
+                },
+                "Track Of The Moon Beast": {
+                    poster: "https://www.gstatic.com/tv/thumb/v22vodart/39804/p39804_v_v8_ab.jpg",
+                    description: "A young man is transformed into a hideous 'moon beast' due to a meteor fragment lodged in his body.",
+                    showtime: "10:30PM",
+                    runtime: "90",
+                    tickets: 2
+                },
+                "The Skydivers": {
+                    poster: "https://www.gstatic.com/tv/thumb/v22vodart/23039/p23039_v_v8_ab.jpg",
+                    description: "The lives and romantic entanglements of a group of young adults who have achieved the status of rock music 'stars' but who have peaked in their careers.",
+                    showtime: "07:45PM",
+                    runtime: "92",
+                    tickets: 8
+                },
+                "The Killer Shrews": {
+                    poster: "https://www.gstatic.com/tv/thumb/v22vodart/90413/p90413_v_v8_ab.jpg",
+                    description: "On an isolated island, a small group of people are terrorized by giant voracious shrews in the midst of a hurricane.",
+                    showtime: "08:15PM",
+                    runtime: "91",
+                    tickets: 3
+                },
+                "Project Moon Base": {
+                    poster: "https://www.gstatic.com/tv/thumb/v22vodart/93492/p93492_v_v8_aa.jpg",
+                    description: "A newspaper reporter and a bunch of scientists fly a rocket to the moon to prove that the moon is not made of cheese. The rocket becomes enveloed in a green 'cheese' cloud and crash-lands back on Earth. The end.",
+                    showtime: "01:00PM",
+                    runtime: "81",
+                    tickets: 1
+                },
+                "The Giant Spider Invasion": {
+                    poster: "https://www.gstatic.com/tv/thumb/v22vodart/31041/p31041_v_v8_ab.jpg",
+                    description: "A black hole hits the small town of Dellwood, Wisconsin, opening a door to other dimensions. Giant spiders emerge from it. Soon the town is taken over by the spiders and they kill and eat many of the residents.",
+                    showtime: "06:00PM",
+                    runtime: "95",
+                    tickets: 0
+                },
+                "Catalina Caper": {
+                    poster: "https://www.gstatic.com/tv/thumb/v22vodart/14668/p14668_v_v8_aa.jpg",
+                    description: "A group of teenagers are on an island for a party, but one of the girls ends up missing. She did not drown or swim away, so is she kidnapped or is there a more sinister reason for her disappearance?",
+                    showtime: "11:30PM",
+                    runtime: "82",
+                    tickets: 4
+                },
+                "Secret Agent Super Dragon": {
+                    poster: "https://www.gstatic.com/tv/thumb/v22vodart/24161/p24161_v_v8_ab.jpg",
+                    description: "A secret agent is sent to the Middle East to destroy a gang of assassins.",
+                    showtime: "10:00PM",
+                    runtime: "93",
+                    tickets: 6
+                },
+                "Wild Rebels": {
+                    poster: "https://www.gstatic.com/tv/thumb/v22vodart/33526/p33526_v_v8_ab.jpg",
+                    description: "A stock car racer gets involved with gangsters trying to fix a race.",
+                    showtime: "02:15PM",
+                    runtime: "90",
+                    tickets: 2
+                },
+                "Danger: Diabolik": {
+                    poster: "https://www.gstatic.com/tv/thumb/v22vodart/5635/p5635_v_v8_aa.jpg",
+                    description: "The mysterious criminal mastermind known as 'Diabolik' is an arch-criminal whose life is dedicated to crime and plunder. He steals everything from a chocolate factory to billions of dollars of gold to tanks and helicopters, and they can never catch him, as he is always one step ahead of them. He lives in an underground castle and only has one person to call his 'friend', his girlfriend, Eva. One day, Diabolik and Eva decide to take things one step further, and rob the government itself. The government has no choice but to call in the help of the super-spy, Inspector Ginko. Will Ginko be able to put a stop to the thieving and bring Diabolik to justice?",
+                    showtime: "05:00PM",
+                    runtime: "100",
+                    tickets: 9
+                },
+                "Village Of The Giants": {
+                    poster: "https://www.gstatic.com/tv/thumb/v22vodart/5030/p5030_v_v8_aa.jpg",
+                    description: "When a group of teenagers stumble upon a secret lab, they become part of a deadly experiment - the teens must find a way out before they become prey to the monsters that lurk within the lab's walls.",
+                    showtime: "12:00PM",
+                    runtime: "91",
+                    tickets: 1
+                }
+            };
 
-    // Event listener for movie selection dropdown
-    movieSelect.addEventListener('change', function() {
-        const selectedMovieTitle = movieSelect.value;
-        const selectedMovie = moviesData.find(movie => movie.title === selectedMovieTitle);
-        updateMovieDetails(selectedMovie);
-    });
+            function updateMovieDetails(movieTitle) {
+                const movie = movieData[movieTitle];
+                if (movie) {
+                    movieTitle.textContent = movieTitle;
+                    moviePoster.src = movie.poster;
+                    movieDescription.textContent = "Description: " + movie.description;
+                    movieShowtime.textContent = "Showtime: " + movie.showtime;
+                    movieRuntime.textContent = "Runtime: " + movie.runtime + " minutes";
+                    availableTickets.textContent = movie.tickets;
+                }
+            }
 
-    // Event listener for clicking on movie list items
-    filmsList.addEventListener('click', function(event) {
-        if (event.target.classList.contains('film')) {
-            const selectedMovieTitle = event.target.dataset.title;
-            const selectedMovie = moviesData.find(movie => movie.title === selectedMovieTitle);
-            updateMovieDetails(selectedMovie);
-        }
-    });
+            viewMovieBtn.addEventListener('click', function() {
+                const selectedMovie = movieSelect.value;
+                updateMovieDetails(selectedMovie);
+            });
 
-    // Function to update movie details section
-    function updateMovieDetails(movie) {
-        movieDetails.innerHTML = `
-            <h2>${movie.title}</h2>
-            <img src="https://www.gstatic.com/tv/thumb/v22vodart/2157/p2157_v_v8_ab.jpg" alt="${movie.title} Poster">
-            <p>Description: ${movie.description}</p>
-            <p>Showtime: ${movie.showtime}</p>
-            <p>Runtime: ${movie.runtime}</p>
-            <p>Available Tickets: <span id="available-tickets">${movie.availableTickets}</span></p>
-        `;
-    }
-
-    // Event listener for buying a ticket
-    buyTicketButton.addEventListener('click', function() {
-        const currentAvailableTickets = parseInt(availableTicketsDisplay.innerText);
-        if (currentAvailableTickets > 0) {
-            const updatedTickets = currentAvailableTickets - 1;
-            availableTicketsDisplay.innerText = updatedTickets;
-            alert('Ticket purchased successfully!');
-        } else {
-            alert('Sorry, no more tickets available for this movie.');
-        }
-    });
-});
+            // Initially load the first movie's details
+            updateMovieDetails(movieSelect.value);
+        });
