@@ -6,12 +6,13 @@
     <title>Flatdango Movie Theater</title>
     <script src="app.js"></script>
     <style>
-     /* Basic styling for demonstration purposes */
-     body {
+        /* CSS Styles */
+        body {
             font-family: Arial, sans-serif;
             margin: 20px;
             padding: 0;
         }
+
         header {
             background-color: #333;
             color: #fff;
@@ -20,25 +21,34 @@
             justify-content: space-between;
             align-items: center;
         }
+
         nav ul {
             list-style-type: none;
             margin: 0;
             padding: 0;
         }
+
         nav ul li {
             display: inline;
             margin-right: 10px;
         }
+
         nav ul li a {
             color: #fff;
             text-decoration: none;
         }
+
         main {
             margin-top: 20px;
             display: flex;
-            justify-content: flex-start;
-            align-items: flex-start;
+            flex-direction: column; /* Ensure sections stack vertically */
+            align-items: flex-start; /* Align content to the left */
         }
+
+        section {
+            margin-bottom: 20px; /* Space between sections */
+        }
+
         .movie-details {
             flex: 1;
             padding: 10px;
@@ -47,17 +57,18 @@
             background-color: #f9f9f9;
             margin-right: 20px;
         }
+
         #movie-poster {
             max-width: 200px; /* Limit maximum width of the poster */
             border: 1px solid #ccc; /* Optional border for better visibility */
         }
+
         .btn {
             padding: 10px 20px;
             font-size: 16px;
             cursor: pointer;
-    
-        }    
-    </style>    
+        }
+    </style>
 </head>
 <body>
     <header>
@@ -86,6 +97,23 @@
         <section id="movies">
             <h2>Menu of All Movies</h2>
             <ul id="films">
+                <li>The Giant Gila Monster</li>
+                <li>Manos: The Hands Of Fate</li>
+                <li>Time Chasers</li>
+                <li>The Touch Of Satan</li>
+                <li>Santa Claus Conquers The Martians</li>
+                <li>Track Of The Moon Beast</li>
+                <li>The Skydivers</li>
+                <li>The Killer Shrews</li>
+                <li>Project Moon Base</li>
+                <li>The Giant Spider Invasion</li>
+                <li>Catalina Caper</li>
+                <li>Secret Agent Super Dragon</li>
+                <li>Wild Rebels</li>
+                <li>Danger: Diabolik</li>
+                <li>Village Of The Giants</li>
+            </ul>
+            
                 <!-- Populate dynamically with JavaScript -->
             </ul>
         </section>

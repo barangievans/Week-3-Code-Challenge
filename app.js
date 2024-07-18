@@ -146,16 +146,17 @@ fetch('http://localhost:3000/films')
         const movie = movieData[movieTitle];
         if (movie) {
             movieTitleElem.textContent = movieTitle;
-            moviePosterElem.src = movie.poster;
+            moviePosterElem.src = movie.poster;  // Ensure this line correctly sets the src attribute
             movieDescriptionElem.textContent = "Description: " + movie.description;
             movieShowtimeElem.textContent = "Showtime: " + movie.showtime;
             movieRuntimeElem.textContent = "Runtime: " + movie.runtime + " minutes";
             availableTicketsElem.textContent = movie.tickets;
-
+    
             // Enable or disable the Buy Ticket button based on available tickets
             buyTicketBtn.disabled = movie.tickets === 0;
         }
     }
+    
 
     // Event listener for when View Movie Description button is clicked
     viewMovieBtn.addEventListener('click', function() {
