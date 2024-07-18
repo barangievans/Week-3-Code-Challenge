@@ -1,4 +1,27 @@
-document.addEventListener('DOMContentLoaded', function() {
+// Fetch all films from json-server
+fetch('http://localhost:3000/films')
+  .then(response => {
+    if (!response.ok) {
+      throw new Error('Network response was not ok');
+    }
+    return response.json(); // Parse JSON response
+  })
+  .then(films => {
+    // Here 'films' is an array containing the films data
+    console.log(films);
+
+    // Example: Displaying film titles in the console
+    films.forEach(film => {
+      console.log(film.title);
+    });
+
+    // Example: Rendering films in a web page
+    renderFilms(films); // Assuming 'renderFilms' is a function you define
+  })
+  .catch(error => {
+    console.error('Error fetching data:', error);
+  });
+  document.addEventListener('DOMContentLoaded', function() {
     const movieSelect = document.getElementById('movie-select');
     const movieTitleElem = document.getElementById('movie-title');
     const moviePosterElem = document.getElementById('movie-poster');
@@ -118,6 +141,7 @@ document.addEventListener('DOMContentLoaded', function() {
         }
     };
 
+    // Function to update movie details based on selection
     function updateMovieDetails(movieTitle) {
         const movie = movieData[movieTitle];
         if (movie) {
@@ -133,11 +157,13 @@ document.addEventListener('DOMContentLoaded', function() {
         }
     }
 
+    // Event listener for when View Movie Description button is clicked
     viewMovieBtn.addEventListener('click', function() {
         const selectedMovie = movieSelect.value;
         updateMovieDetails(selectedMovie);
     });
 
+    // Event listener for when Buy Ticket button is clicked
     buyTicketBtn.addEventListener('click', function() {
         const selectedMovie = movieSelect.value;
         const movie = movieData[selectedMovie];
@@ -150,19 +176,18 @@ document.addEventListener('DOMContentLoaded', function() {
         }
     });
 
-    // Populate the list of movies dynamically
-    const filmsList = document.getElementById('films');
-    for (const movieTitle in movieData) {
-        const option = document.createElement('option');
-        option.textContent = movieTitle;
-        option.value = movieTitle;
-        movieSelect.appendChild(option);
-
-        const listItem = document.createElement('li');
-        listItem.textContent = movieTitle;
-        filmsList.appendChild(listItem);
+    // Function to populate the list of movies dynamically
+    function populateMovieList() {
+        const filmsList = document.getElementById('films');
+        for (const movieTitle in movieData) {
+            const option = document.createElement('option');
+            option.textContent = movieTitle;
+            option.value = movieTitle;
+            movieSelect.appendChild(option);
+        }
     }
 
-    // Initially load the first movie's details
+    // Initialize the movie list and default movie details on page load
+    populateMovieList();
     updateMovieDetails(movieSelect.value);
 });
