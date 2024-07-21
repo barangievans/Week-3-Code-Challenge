@@ -50,6 +50,6 @@ Implementing actual ticket purchasing functionality.
 Integrating with a backend service to manage real-time ticket availability.
 Adding user authentication for personalized experiences.
 Author
-This application was developed by Barangi Evans.
+Hosted github link:https://barangievans.github.io/Week-3-Code-Challenge/
 
 Feel free to modify, expand, or enhance this application based on your specific requirements and user feedback.
