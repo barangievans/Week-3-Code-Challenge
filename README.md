@@ -41,7 +41,7 @@ The application uses example data for movies, including posters, descriptions, s
 How to Run
 To run this application locally:
 
-Download or clone the repository.
+Download or clone the repository. Repository url:https://github.com/barangievans/Week-3-Code-Challenge
 Open index.html in a web browser that supports JavaScript.
 Future Improvements
 Future enhancements could include:
